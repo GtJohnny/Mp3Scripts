@@ -7,8 +7,8 @@ build
 
 #Cmake
 *.cmake
-CmakeFiles
-MakeFile
+CMakeFiles
+Makefile
 
 # Compiled Object files
 *.slo
