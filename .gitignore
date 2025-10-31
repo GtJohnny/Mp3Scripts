@@ -3,8 +3,12 @@
 
 # Build files
 build
-CmakeFiles
 .vscode
+
+#Cmake
+*.cmake
+CmakeFiles
+MakeFile
 
 # Compiled Object files
 *.slo
