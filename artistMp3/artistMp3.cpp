@@ -15,7 +15,7 @@ static unsigned int failureCount = 0;
 
 void displayHelp() {
     std::cout << "For all specified artists, add artist to mp3 title\n";
-    std::cout << "USAGE: ./titleArtist [ -f FILES] [ -a ARTISTS]\n";
+    std::cout << "USAGE: ./artistMp3 [ -f FILES] [ -a ARTISTS]\n";
     std::cout << "OPTIONS:\n";
     std::cout << "  -h, --help      Show this help message\n";
     std::cout << "  -d, --dir       Specify the path to search\n";
