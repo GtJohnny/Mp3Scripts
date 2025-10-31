@@ -157,7 +157,7 @@ artistMp3/
 </p>
 
 <h4>🪄 Usage</h4>
-<h2>Just read the -h flag, you have eyes.
+<h2>Just read the -h flag, you have eyes.</h2>
 <pre>
 ./artistMp3 -h
 </pre>
