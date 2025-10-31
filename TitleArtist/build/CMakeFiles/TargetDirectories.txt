@@ -1,0 +1,3 @@
+/home/ionut/Music/Scripts/TitleArtist/build/CMakeFiles/titleArtist.dir
+/home/ionut/Music/Scripts/TitleArtist/build/CMakeFiles/edit_cache.dir
+/home/ionut/Music/Scripts/TitleArtist/build/CMakeFiles/rebuild_cache.dir

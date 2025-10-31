@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/titleArtist.dir/link.d CMakeFiles/titleArtist.dir/titleArtist.cpp.o -o titleArtist  /usr/local/lib/libtag.a
