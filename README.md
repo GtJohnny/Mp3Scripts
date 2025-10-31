@@ -45,12 +45,30 @@ g++ deleteMp3.cpp -o deleteMp3
 g++ syncMp3.cpp -o syncMp3
 </pre>
 
+
+
+<pre>
+g++ syncMp3.cpp -o syncMp3
+</pre>
+<p>For artistMp3</p>
+
+<H3>For artistMp3 we need to use CMake</H3>
+<pre>
+  cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$TAGLIB_PREFIX
+  cmake --build build --config Release
+</pre>
+or just use compile.sh in artistMp3
+<pre>
+  sh compile.sh
+</pre>
+
 <p>Then execute them directly:</p>
 
 <pre>
-./renameMp3
-./deleteMp3
-./syncMp3
+./renameMp3 [-d directory] [what_to_remove]
+./deleteMp3 [-d directory] [what_to_delete]
+./syncMp3 [OPTIONS] SOURCE_ALBUM DEST_ALBUM
+./artistMp3 [ -f FILES] [ -a ARTISTS]
 </pre>
 
 <p>
@@ -66,30 +84,29 @@ g++ syncMp3.cpp -o syncMp3
 
 <p>Removes specified strings from within the filenames of MP3 files.</p>
 
-<pre>
-./renameMp3 -h
-</pre>
 
-<b>Usage:</b>
-<pre>
-./renameMp3 [-d directory] [<what to remove>]
-    -h --help : display this help message
-    -d --directory : specify the directory containing mp3 files (default is current directory)
-    <what to remove> : specify the strings to remove from mp3 filenames
-</pre>
 
 <b>Example:</b>
 <pre>
-./renameMp3 -d ../SweetSorrow 'SpotiDown - ' Youtube 'Michael Jackson'
+usr@Laptop~/Music/Binaries$ ./renameMp3 -d ../Albums/SweetSorrow/ 'SpotiDown.App - '
+Old: "SpotiDown.App - Wake Up - Imagine Dragons.mp3"
+New: "Wake Up - Imagine Dragons.mp3"
+Old: "SpotiDown.App - Whatever It Takes - Imagine Dragons.mp3"
+New: "Whatever It Takes - Imagine Dragons.mp3"
+Old: "SpotiDown.App - Royalty - Egzod.mp3"
+New: "Royalty - Egzod.mp3"
+Old: "SpotiDown.App - Not Strong Enough - Apocalyptica.mp3"
+New: "Not Strong Enough - Apocalyptica.mp3"
+Old: "SpotiDown.App - What I_ve Done - Linkin Park.mp3"
+New: "What I_ve Done - Linkin Park.mp3"
+Old: "SpotiDown.App - Eyes Closed - Imagine Dragons.mp3"
+New: "Eyes Closed - Imagine Dragons.mp3"
+Old: "SpotiDown.App - Radioactive - Imagine Dragons.mp3"
+New: "Radioactive - Imagine Dragons.mp3"
+Renaming completed.
+Total files renamed: 7
+Failed operations: 0
 </pre>
-
-<p>This will remove each of the following strings from all songs in the specified directory:</p>
-
-<ol>
-  <li><code>SpotiDown - </code></li>
-  <li><code>Youtube</code></li>
-  <li><code>Michael Jackson</code></li>
-</ol>
 
 <hr/>
 
@@ -106,7 +123,7 @@ g++ syncMp3.cpp -o syncMp3
 
 <pre>
 g++ syncMp3.cpp -o syncMp3
-./syncMp3
+./syncMp3 [OPTIONS] SOURCE_ALBUM DEST_ALBUM
 </pre>
 
 <hr/>
@@ -116,7 +133,7 @@ g++ syncMp3.cpp -o syncMp3
 <p>
   This optional utility uses the 
   <a href="https://github.com/taglib/taglib" target="_blank">TagLib</a> library
-  to <b>append artist names to MP3 titles</b> or modify metadata.
+  to read the metadata in regards to the Mp3 format (to see the artists, album, genre, duration etc).
 </p>
 
 <p>Located in the <code>artistMp3/</code> directory:</p>
@@ -133,31 +150,14 @@ artistMp3/
   To use this utility, you must first install <b>TagLib</b> — a C++ library for reading and editing audio metadata.
 </p>
 
-<p>
-  ⚠️ <b>Note:</b> TagLib itself requires <b>CMake</b> to be installed in order to build and install correctly.
-</p>
 
 <p>
-  Follow the official TagLib installation instructions here:  
+  Help yourself with the installation instructions:
   👉 <a href="https://github.com/taglib/taglib/blob/master/INSTALL.md" target="_blank">TagLib Installation Guide</a>
 </p>
 
-<h4>🔧 Compilation (CMake Only)</h4>
-
-<p>
-  <code>artistMp3</code> <b>can only be compiled using CMake</b>, as it depends on TagLib’s CMake configuration.
-</p>
-
-<pre>
-cd artistMp3
-cmake .
-make
-</pre>
-
-<p>This will generate the <code>artistMp3</code> executable in the same directory.</p>
-
 <h4>🪄 Usage</h4>
-
+<h2>Just read the -h flag, you have eyes.
 <pre>
 ./artistMp3 -h
 </pre>
@@ -202,9 +202,4 @@ OPTIONS:
 
 <hr/>
 
-<h2>🤝 Contributions</h2>
-
-<p>
-  Pull requests, improvements, and new CLI tools are welcome!<br/>
-  If you’d like to extend the repo with new functionality, feel free to fork and submit a PR.
-</p>
+PRs + ideas are welcome.
